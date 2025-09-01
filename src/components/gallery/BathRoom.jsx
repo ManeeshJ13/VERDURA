@@ -1,9 +1,9 @@
 import React from "react";
 
-const LivingRoom = () => {
-    const livingRoomImages = [
-        'living1.jpg',
-        'living3.jpg'
+const BathRoom = () => {
+    const bathRoomImages = [
+        'bathroom1.jpg',
+        'bathroom2.jpg'
     ];
 
     return (
@@ -12,7 +12,7 @@ const LivingRoom = () => {
             width: '100vw',
             position: 'relative',
             overflow: 'hidden',
-            backgroundColor: '#ffffff' 
+            backgroundColor: '#ffffff'
         }}>
             <h2 style={{
                 color: "#461010",
@@ -26,20 +26,20 @@ const LivingRoom = () => {
                 zIndex: 10,
                 margin: 0
             }}>
-                LIVING ROOM
+                BATHROOM
             </h2>
 
             <div className="horizontal-scroll-container" style={{
                 display: 'flex',
-                width: `${livingRoomImages.length * 80}vw`,
+                width: `${bathRoomImages.length * 80}vw`,
                 height: '100vh',
                 position: 'absolute',
                 top: 0,
                 left: 0,
                 gap: 0,
-                backgroundColor: 'transparent' 
+                backgroundColor: 'transparent' // NEW: Ensure container doesn't have dark background
             }}>
-                {livingRoomImages.map((image, index) => (
+                {bathRoomImages.map((image, index) => (
                     <div 
                         key={index}
                         className="gallery-image"
@@ -57,7 +57,7 @@ const LivingRoom = () => {
                     >
                         <img
                             src={image}
-                            alt={`Living Room ${index + 1}`}
+                            alt={`Bath Room ${index + 1}`}
                             style={{
                                 width: '100%',
                                 height: 'auto',
@@ -79,4 +79,4 @@ const LivingRoom = () => {
     )
 }
 
-export default LivingRoom;
+export default BathRoom;

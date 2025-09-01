@@ -1,9 +1,11 @@
 import React from "react";
 
-const LivingRoom = () => {
-    const livingRoomImages = [
-        'living1.jpg',
-        'living3.jpg'
+const BedRoom = () => {
+    const bedRoomImages = [
+        'bedroom1.jpg',
+        'bedroom2.jpg',
+        'bedroom3.jpg',
+        'bedroom4.jpg'
     ];
 
     return (
@@ -12,7 +14,7 @@ const LivingRoom = () => {
             width: '100vw',
             position: 'relative',
             overflow: 'hidden',
-            backgroundColor: '#ffffff' 
+            backgroundColor: '#ffffff'
         }}>
             <h2 style={{
                 color: "#461010",
@@ -26,12 +28,12 @@ const LivingRoom = () => {
                 zIndex: 10,
                 margin: 0
             }}>
-                LIVING ROOM
+                BEDROOM
             </h2>
 
             <div className="horizontal-scroll-container" style={{
                 display: 'flex',
-                width: `${livingRoomImages.length * 80}vw`,
+                width: `${bedRoomImages.length * 80}vw`,
                 height: '100vh',
                 position: 'absolute',
                 top: 0,
@@ -39,7 +41,7 @@ const LivingRoom = () => {
                 gap: 0,
                 backgroundColor: 'transparent' 
             }}>
-                {livingRoomImages.map((image, index) => (
+                {bedRoomImages.map((image, index) => (
                     <div 
                         key={index}
                         className="gallery-image"
@@ -57,7 +59,7 @@ const LivingRoom = () => {
                     >
                         <img
                             src={image}
-                            alt={`Living Room ${index + 1}`}
+                            alt={`BedRoom ${index + 1}`}
                             style={{
                                 width: '100%',
                                 height: 'auto',
@@ -79,4 +81,4 @@ const LivingRoom = () => {
     )
 }
 
-export default LivingRoom;
+export default BedRoom;

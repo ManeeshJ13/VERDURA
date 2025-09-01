@@ -2,6 +2,9 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import LivingRoom from "./gallery/LivingRoom";
+import BedRoom from "./gallery/BedRoom";
+import BathRoom from "./gallery/BathRoom";
+import Kitchen from "./gallery/Kitchen";
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -104,6 +107,18 @@ const Gallery = () => {
 
             <div ref={addToRefs}>
                 <LivingRoom />
+            </div>
+
+            <div ref={addToRefs}>
+                <BedRoom />
+            </div>
+
+            <div ref={addToRefs}>
+                <BathRoom />
+            </div>
+
+            <div ref={addToRefs}>
+                <Kitchen />
             </div>
         </div>
     );
