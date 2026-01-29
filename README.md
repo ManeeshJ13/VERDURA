@@ -1,12 +1,25 @@
-# React + Vite
+# VERDURA HOME INTERIORS - Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## ABOUT VERDURA
+**Verdura** is a one-of-a-kind interiror designing and manufacturing company that translates concepts into life.
+With a strong focus on indivdual needs, expectations and lifestyle preferences, Verdura delivers **fully customized interior design solutions** that blend aesthethics with advanced manufacturing capabilites
 
-Currently, two official plugins are available:
+## ABOUT THE WEB APP
+This web application is built to represent **Verdura's brand identity, services, and design philosophy** while providing a seamless digital experience for customers and adminstrators
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## OBJECTIVES
+- Showcase Verdura's interior services and portfolio
+- Highlight all interior services
+- Enable Customer inquiries and consultations
+- Support future scalability
 
-## Expanding the ESLint configuration
+## FEATURES
+- Responsive, modern UI aligned with Verdura's brand
+- Service Pages
+- Contact and Inquiry Form
+- Scalable architecture for future use
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## TECH STACK
+- Frontend - React
+- Deployment - Vercel
+- Version Control - Git & Github
