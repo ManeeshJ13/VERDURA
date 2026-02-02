@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css'
 import LoadingScreen from "./loadingScreen";
-import MainPage from './MainPage';
+import MainPage from "./mainPage";
 
 const App = () => {
   return(
