@@ -76,7 +76,7 @@ const MainPage = () => {
                 <p style={{
                     color: "#461010",
                     fontFamily: "Rethink Sans",
-                    fontWeight: "bold"
+                    fontWeight: "bolder"
                 }}>
                     At Verdura, we start by listening to you, to the minute details, your expectations and then working with you to create signature pieces that match your space, style and standards. From cozy homes to work spaces, we craft environments that tell your story.
                 </p>

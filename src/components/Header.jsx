@@ -6,7 +6,7 @@ const Header = ({ lenis }) => {
   const [hoveredItem, setHoveredItem] = useState(null);
   
   const items = [
-    { label: "Menu", target: "menu" },
+    { label: "Menuu", target: "menu" },
     { label: "About", target: "about" },
     { label: "Gallery", target: "gallery" },
     { label: "Contact Us", target: "contact" }

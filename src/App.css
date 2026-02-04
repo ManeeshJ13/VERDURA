@@ -1,7 +1,7 @@
 
 @keyframes flow {
   0% {
-    background-position: 0% center;
+    background-position: 1% center;
   }
   100% {
     background-position: 300% center;
