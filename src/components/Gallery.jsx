@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import LivingRoom from "./gallery/LivingRoom";
@@ -12,14 +12,26 @@ gsap.registerPlugin(ScrollTrigger);
 const Gallery = () => {
     const galleryRef = useRef();
     const sectionsRef = useRef([]);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+        
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     useEffect(() => {
         const sections = sectionsRef.current;
 
         sections.forEach((section, index) => {
             const images = section.querySelectorAll('.gallery-image');
-            const totalWidth = (images.length - 1) * 80;
-            const scrollDistance = totalWidth * 10;
+            const totalWidth = (images.length - 1) * (isMobile ? 90 : 80);
+            const scrollDistance = isMobile ? totalWidth * 8 : totalWidth * 10;
 
             gsap.timeline({
                 scrollTrigger: {
@@ -36,7 +48,6 @@ const Gallery = () => {
                     invalidateOnRefresh: true,
                     anticipatePin: 1,
                     onEnter: () => {
-                        // NEW: Preserve background color during horizontal scroll
                         document.body.style.backgroundColor = '#ffffff';
                         setTimeout(() => {
                             document.body.style.overflowY = 'hidden';
@@ -46,11 +57,9 @@ const Gallery = () => {
                     onLeave: () => {
                         document.body.style.overflowY = 'auto';
                         document.body.style.height = 'auto';
-                        // NEW: Reset background to original
                         document.body.style.backgroundColor = '';
                     },
                     onEnterBack: () => {
-                        // NEW: Preserve background color during horizontal scroll
                         document.body.style.backgroundColor = '#ffffff';
                         setTimeout(() => {
                             document.body.style.overflowY = 'hidden';
@@ -60,7 +69,6 @@ const Gallery = () => {
                     onLeaveBack: () => {
                         document.body.style.overflowY = 'auto';
                         document.body.style.height = 'auto';
-                        // NEW: Reset background to original
                         document.body.style.backgroundColor = '';
                     }
                 }
@@ -73,13 +81,12 @@ const Gallery = () => {
         });
 
         return () => {
-            // NEW: Reset all modified styles including background
             document.body.style.overflowY = 'auto';
             document.body.style.height = 'auto';
             document.body.style.backgroundColor = '';
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         };
-    }, []);
+    }, [isMobile]);
 
     const addToRefs = (el) => {
         if (el && !sectionsRef.current.includes(el)) { 
@@ -91,14 +98,19 @@ const Gallery = () => {
         <div 
             ref={galleryRef}
             id="gallery"
-            style={{ paddingTop: "50px" }}
+            style={{ 
+                paddingTop: "clamp(30px, 8vw, 50px)",
+                paddingLeft: "clamp(0.5rem, 2vw, 1rem)",
+                paddingRight: "clamp(0.5rem, 2vw, 1rem)"
+            }}
         >
             <h1 style={{
                 color: "#c9252b",
                 fontFamily: "Rethink Sans",
                 fontWeight: "bolder",
                 textAlign: "center",
-                marginBottom: "30px",
+                marginBottom: "clamp(20px, 5vw, 30px)",
+                fontSize: "clamp(1.75rem, 5vw, 2.5rem)",
                 position: 'relative',
                 zIndex: 20
             }}>

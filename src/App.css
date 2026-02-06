@@ -1,4 +1,3 @@
-
 @keyframes flow {
   0% {
     background-position: 1% center;
@@ -6,4 +5,27 @@
   100% {
     background-position: 300% center;
   }
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+  
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Tablet styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  body {
+    overflow-x: hidden;
+  }
+}
+
+/* Smooth scrolling for all devices */
+html {
+  scroll-behavior: smooth;
 }

@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const Kitchen = () => {
+    const [isMobile, setIsMobile] = useState(false);
+    
     const kitchenImages = [
         'kitchen1.jpg',
         'kitchen2.jpg',
         'kitchen3.jpg'
     ];
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+        
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     return (
         <div className="room-section" style={{
@@ -21,18 +34,20 @@ const Kitchen = () => {
                 fontWeight: "bold",
                 textAlign: "center",
                 position: 'absolute',
-                top: '8vh',
+                top: isMobile ? '5vh' : '8vh',
                 left: '50%',
                 transform: 'translateX(-50%)',
                 zIndex: 10,
-                margin: 0
+                margin: 0,
+                fontSize: isMobile ? 'clamp(1.2rem, 4vw, 1.5rem)' : 'clamp(1.5rem, 3vw, 2rem)',
+                padding: '0 1rem'
             }}>
                 KITCHEN
             </h2>
 
             <div className="horizontal-scroll-container" style={{
                 display: 'flex',
-                width: `${kitchenImages.length * 80}vw`,
+                width: `${kitchenImages.length * (isMobile ? 90 : 80)}vw`,
                 height: '100vh',
                 position: 'absolute',
                 top: 0,
@@ -45,13 +60,15 @@ const Kitchen = () => {
                         key={index}
                         className="gallery-image"
                         style={{
-                            width: '80vw',
+                            width: isMobile ? '90vw' : '80vw',
                             height: '100vh',
                             flexShrink: 0,
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: "center",
-                            padding: '15vh 10vw 5vh 10vw',
+                            padding: isMobile 
+                                ? '18vh 5vw 5vh 5vw' 
+                                : '15vh 10vw 5vh 10vw',
                             boxSizing: 'border-box',
                             margin: 0
                         }}    
@@ -63,9 +80,11 @@ const Kitchen = () => {
                                 width: '100%',
                                 height: 'auto',
                                 maxHeight: '100%',
-                                objectFit: 'cover', 
-                                borderRadius: '10px',
-                                boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
+                                objectFit: isMobile ? 'contain' : 'cover',
+                                borderRadius: isMobile ? '8px' : '10px',
+                                boxShadow: isMobile 
+                                    ? '0 5px 15px rgba(0,0,0,0.15)' 
+                                    : '0 10px 30px rgba(0,0,0,0.2)',
                                 backgroundColor: 'transparent' 
                             }}
                             onError={(e) => {
